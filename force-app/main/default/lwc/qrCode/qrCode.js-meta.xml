@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>QR Code</masterLabel>
+    <description>Generate a QR Code using the QR Code Styling JS library</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property
+                name="qrCodeValueApiName"
+                type="String"
+                datasource="apex://QrCodeFieldPicklist"
+                label="QR Code Value Field"
+                default="Name"
+                description="Field used as the value of the QR code"
+            />
+            <property
+                name="showTitle"
+                type="Boolean"
+                label="Show Title"
+            />
+            <property
+                name="titleFieldApiName"
+                type="String"
+                datasource="apex://QrCodeFieldPicklist"
+                label="Title Field"
+                default="Name"
+                description="Field used as the component title"
+            />
+            <property
+                name="qrCodeHeight"
+                type="Integer"
+                label="Height"
+                default="300"
+                description="The height of the QR code"
+            />
+            <property
+                name="qrCodeWidth"
+                type="Integer"
+                label="Width"
+                default="300"
+                description="The width of the QR code"
+            />
+            <property
+                name="qrCodeDotsColor"
+                type="String"
+                label="Dots Color"
+                default="#003F2E"
+                description="The hex color of the QR Code"
+            />
+            <property
+                name="qrCodeDotsType"
+                type="String"
+                datasource="Square,Dots,Rounded,Extra rounded,Classy,Classy rounded"
+                label="Dots Type"
+                default="Rounded"
+            />
+            <property
+                name="backgroundColor"
+                type="String"
+                label="Background Color"
+                default="#ffffff"
+                description="The hex color of the background"
+            />
+            <property
+                name="cornersSquareStyle"
+                type="String"
+                datasource="None,Square,Dot,Extra rounded"
+                label="Corners Square Style"
+                default="Square"
+            />
+            <property
+                name="cornersDotStyle"
+                type="String"
+                datasource="None,Square,Dot"
+                label="Corners Dot Style"
+                default="Square"
+            />
+            <property
+                name="logoFileName"
+                type="String"
+                label="Logo File Name"
+                default="agGlyphColor.png"
+                description="The name of a file in the qrCodeLogos static resource folder. Leave blank to omit logo image."
+            />
+            <property
+                name="logoImageSize"
+                type="String"
+                datasource="0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1"
+                label="Logo Image Size"
+                default="0.5"
+            />
+            <property
+                name="logoImageMargin"
+                type="Integer"
+                label="Logo Image Margin"
+                default="5"
+            />
+            <supportedFormFactors>
+                <supportedFormFactor type="Large"></supportedFormFactor>
+                <supportedFormFactor type="Small"></supportedFormFactor>
+            </supportedFormFactors>
+        </targetConfig>
+        <targetConfig targets="lightningCommunity__Default">
+            <property 
+                name="recordId" 
+                type="String" 
+                label="Record ID" 
+                default="{!recordId}"
+                description="For community record pages, set value to {!recordId}"
+            />
+            <property
+                name="qrCodeHeight"
+                type="Integer"
+                label="Height"
+                default="300"
+                description="The height of the QR code"
+            />
+            <property
+                name="qrCodeWidth"
+                type="Integer"
+                label="Width"
+                default="300"
+                description="The width of the QR code"
+            />
+            <property
+                name="qrCodeDotsColor"
+                type="String"
+                label="Dots Color"
+                default="#003F2E"
+                description="The hex color of the QR Code"
+            />
+            <property
+                name="qrCodeDotsType"
+                type="String"
+                datasource="Square,Dots,Rounded,Extra rounded,Classy,Classy rounded"
+                label="Dots Type"
+                default="Rounded"
+            />
+            <property
+                name="backgroundColor"
+                type="String"
+                label="Background Color"
+                default="#ffffff"
+                description="The hex color of the background"
+            />
+            <property
+                name="cornersSquareStyle"
+                type="String"
+                datasource="None,Square,Dot,Extra rounded"
+                label="Corners Square Style"
+                default="Square"
+            />
+            <property
+                name="cornersDotStyle"
+                type="String"
+                datasource="None,Square,Dot"
+                label="Corners Dot Style"
+                default="Square"
+            />
+            <property
+                name="logoFileName"
+                type="String"
+                label="Logo File Name"
+                default="agGlyphColor.png"
+                description="The name of a file in the qrCodeLogos static resource folder. Leave blank to omit logo image."
+            />
+            <property
+                name="logoImageSize"
+                type="String"
+                datasource="0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1"
+                label="Logo Image Size"
+                default="0.5"
+            />
+            <property
+                name="logoImageMargin"
+                type="Integer"
+                label="Logo Image Margin"
+                default="5"
+            />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

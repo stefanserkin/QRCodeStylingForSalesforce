@@ -1,0 +1,146 @@
+[
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testDefaultValueWhenEntityInvalid",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 119
+        },
+        "TestTimestamp": "2026-02-21T17:16:10.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testDefaultValueWhenEntityIsContact",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 61
+        },
+        "TestTimestamp": "2026-02-21T17:16:10.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetDefaultValueInvalidObjectFallsBackToName",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 24
+        },
+        "TestTimestamp": "2026-02-21T17:16:10.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetDefaultValueNullEntityFallsBackToName",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2026-02-21T17:16:10.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetDefaultValueUsesNameWhenPresent",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 43
+        },
+        "TestTimestamp": "2026-02-21T17:16:10.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetDefaultValueUsesSubjectWhenNoName",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 36
+        },
+        "TestTimestamp": "2026-02-21T17:16:10.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetEntityNameWithCtxNull",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 8
+        },
+        "TestTimestamp": "2026-02-21T17:16:10.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetValuesExcludesReferenceTypes",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 116
+        },
+        "TestTimestamp": "2026-02-21T17:16:11.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetValuesForInvalidObjectReturnsInvalidContextRow",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 22
+        },
+        "TestTimestamp": "2026-02-21T17:16:11.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetValuesForNullEntityReturnsInvalidContextRow",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2026-02-21T17:16:11.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testGetValuesUseCanonicalCasing",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 35
+        },
+        "TestTimestamp": "2026-02-21T17:16:11.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "QrCodeFieldPicklist_Test",
+        "Method": "testIsValidAlwaysTrue",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 7
+        },
+        "TestTimestamp": "2026-02-21T17:16:11.000+0000"
+    }
+]
