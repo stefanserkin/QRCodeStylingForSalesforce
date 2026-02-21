@@ -50,7 +50,7 @@
                 name="qrCodeDotsColor"
                 type="String"
                 label="Dots Color"
-                default="#003F2E"
+                default="#000000"
                 description="The hex color of the QR Code"
             />
             <property
@@ -85,7 +85,7 @@
                 name="logoFileName"
                 type="String"
                 label="Logo File Name"
-                default="agGlyphColor.png"
+                placeholder="SerkinSolutionsFavicon.png"
                 description="The name of a file in the qrCodeLogos static resource folder. Leave blank to omit logo image."
             />
             <property
@@ -132,7 +132,7 @@
                 name="qrCodeDotsColor"
                 type="String"
                 label="Dots Color"
-                default="#003F2E"
+                default="#000000"
                 description="The hex color of the QR Code"
             />
             <property
@@ -167,7 +167,7 @@
                 name="logoFileName"
                 type="String"
                 label="Logo File Name"
-                default="agGlyphColor.png"
+                placeholder="SerkinSolutionsFavicon.png"
                 description="The name of a file in the qrCodeLogos static resource folder. Leave blank to omit logo image."
             />
             <property
