@@ -2,7 +2,7 @@ minimum_cumulusci_version: '4.8.1'
 project:
     name: QRCodeStylingForSalesforce
     package:
-        name: QRCodeStylingForSalesforce
+        name: QR Code Styling for Salesforce
         namespace: qrcs
         api_version: '65.0'
     git:

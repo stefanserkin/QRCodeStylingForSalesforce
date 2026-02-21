@@ -1,4 +1,4 @@
-# QRCodeStylingForSalesforce
+# QR Code Styling for Salesforce
 
 A collection of Salesforce tools utilizing the QR Code Styling JS library.
 
@@ -16,3 +16,9 @@ To work on this project in a scratch org:
 - [QR Code Styling Documentation](https://www.npmjs.com/package/qr-code-styling)
 - [QR Code Styling Playground](https://qr-code-styling.com/)
 
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+This project includes third-party open source software:
+
+- QR Code Styling (MIT License) — see [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for attribution and full license text.
