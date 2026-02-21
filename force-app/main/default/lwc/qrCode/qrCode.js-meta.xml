@@ -82,11 +82,17 @@
                 default="Square"
             />
             <property
-                name="logoFileName"
+                name="logoUrl"
                 type="String"
-                label="Logo File Name"
-                placeholder="SerkinSolutionsLogo.png"
-                description="The name of a file in the qrCodeLogos static resource folder. Leave blank to omit logo image."
+                label="Logo URL"
+                placeholder="https://www.mymedia.com/my-image.png"
+                description="URL of a public image to display as the logo. Leave blank to omit logo image."
+            />
+            <property
+                name="logoAltText"
+                type="String"
+                label="Logo Alt Text"
+                default="QR Code Logo"
             />
             <property
                 name="logoImageSize"
@@ -164,11 +170,17 @@
                 default="Square"
             />
             <property
-                name="logoFileName"
+                name="logoUrl"
                 type="String"
-                label="Logo File Name"
-                placeholder="SerkinSolutionsLogo.png"
-                description="The name of a file in the qrCodeLogos static resource folder. Leave blank to omit logo image."
+                label="Logo URL"
+                placeholder="https://www.mymedia.com/my-image.png"
+                description="URL of a public image to display as the logo. Leave blank to omit logo image."
+            />
+            <property
+                name="logoAltText"
+                type="String"
+                label="Logo Alt Text"
+                default="QR Code Logo"
             />
             <property
                 name="logoImageSize"

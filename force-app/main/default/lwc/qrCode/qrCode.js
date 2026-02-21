@@ -14,7 +14,6 @@ import { LightningElement, api, wire, track } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import { loadScript } from 'lightning/platformResourceLoader';
 import QrCodeStylingLib from '@salesforce/resourceUrl/qrCodeStyling';
-import LogoFolder from '@salesforce/resourceUrl/qrCodeLogos';
 
 export default class QrCode extends LightningElement {
     @api recordId;
@@ -26,7 +25,8 @@ export default class QrCode extends LightningElement {
     @api backgroundColor;
     @api cornersSquareStyle;
     @api cornersDotStyle;
-    @api logoFileName;
+    @api logoUrl;
+    @api logoAltText;
     @api logoImageSize;
     @api logoImageMargin;
     @api showTitle;
@@ -38,12 +38,6 @@ export default class QrCode extends LightningElement {
 
     qrCodeInstance;
     qrCodeLibLoaded = false;
-
-    logoFolderPath = LogoFolder;
-
-    get logoUrl() {
-        return `${this.logoFolderPath}/qrCodeLogos/${this.logoFileName}`;
-    }
 
     get title() {
         return this.record 
@@ -128,7 +122,7 @@ export default class QrCode extends LightningElement {
             }
         };
 
-        if (this.logoFileName) {
+        if (this.logoUrl) {
             options.image = this.logoUrl;
             options.imageOptions = {
                 crossOrigin: "anonymous",
