@@ -85,7 +85,7 @@
                 name="logoFileName"
                 type="String"
                 label="Logo File Name"
-                placeholder="SerkinSolutionsFavicon.png"
+                placeholder="SerkinSolutionsLogo.png"
                 description="The name of a file in the qrCodeLogos static resource folder. Leave blank to omit logo image."
             />
             <property
@@ -167,7 +167,7 @@
                 name="logoFileName"
                 type="String"
                 label="Logo File Name"
-                placeholder="SerkinSolutionsFavicon.png"
+                placeholder="SerkinSolutionsLogo.png"
                 description="The name of a file in the qrCodeLogos static resource folder. Leave blank to omit logo image."
             />
             <property
