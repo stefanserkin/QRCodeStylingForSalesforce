@@ -74,13 +74,6 @@ export default class QrCode extends LightningElement {
 
     @wire(getRecord, { recordId: '$recordId', fields: '$fields' })
     wiredRecord({ data, error }) {
-        console.log('wiredRecord invoked', JSON.stringify({
-            recordId: this.recordId,
-            objectApiName: this.objectApiName,
-            titleFieldApiName: this.titleFieldApiName,
-            fields: this.fields
-        }));
-
         if (data) {
             this.record = data;
             this.error = undefined;
