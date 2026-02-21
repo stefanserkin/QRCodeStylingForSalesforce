@@ -1,0 +1,26 @@
+minimum_cumulusci_version: '4.8.1'
+project:
+    name: QRCodeStylingForSalesforce
+    package:
+        name: QRCodeStylingForSalesforce
+        namespace: qrcs
+        api_version: '63.0'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/QRCodeStylingForSalesforce/tests
+            options:
+                outputdir: robot/QRCodeStylingForSalesforce/results
+
+    robot_testdoc:
+        options:
+            path: robot/QRCodeStylingForSalesforce/tests
+            output: robot/QRCodeStylingForSalesforce/doc/QRCodeStylingForSalesforce_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 85
