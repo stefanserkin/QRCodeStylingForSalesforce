@@ -46,10 +46,6 @@ export default class QrCode extends LightningElement {
     }
 
     get title() {
-        console.log('getting title with record: ', JSON.stringify(this.record));
-        if (this.record) {
-            console.log('qualified field name for title field: ' + this.getQualifiedFieldName(this.titleFieldApiName));
-        }
         return this.record 
             ? getFieldValue(this.record, this.getQualifiedFieldName(this.titleFieldApiName)) 
             : 'QR Code';
