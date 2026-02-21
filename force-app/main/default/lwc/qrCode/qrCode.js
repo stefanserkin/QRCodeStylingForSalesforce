@@ -14,7 +14,7 @@ import { LightningElement, api, wire, track } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import { loadScript } from 'lightning/platformResourceLoader';
 import QrCodeStylingLib from '@salesforce/resourceUrl/qrCodeStyling';
-// import LogoFolder from '@salesforce/resourceUrl/qrCodeLogos';
+import LogoFolder from '@salesforce/resourceUrl/qrCodeLogos';
 
 export default class QrCode extends LightningElement {
     @api recordId;
@@ -39,13 +39,11 @@ export default class QrCode extends LightningElement {
     qrCodeInstance;
     qrCodeLibLoaded = false;
 
-    // logoFolderPath = LogoFolder;
+    logoFolderPath = LogoFolder;
 
-    /*
     get logoUrl() {
         return `${this.logoFolderPath}/qrCodeLogos/${this.logoFileName}`;
     }
-        */
 
     get title() {
         console.log('getting title with record: ', JSON.stringify(this.record));
