@@ -13,3 +13,6 @@ To work on this project in a scratch org:
 ## Docs
 
 - [Project Doc](https://quip.com/Uyu8A1qYN0bw/QR-Code-Styling-for-Salesforce)
+- [QR Code Styling Documentation](https://www.npmjs.com/package/qr-code-styling)
+- [QR Code Styling Playground](https://qr-code-styling.com/)
+
