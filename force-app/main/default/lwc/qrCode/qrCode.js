@@ -93,7 +93,7 @@ export default class QrCode extends LightningElement {
         } else if (error) {
             this.record = undefined;
             this.error = error;
-            handleError(this, error, 'Failed to retrieve current record');
+            console.error(this.error);
         }
     }
 
