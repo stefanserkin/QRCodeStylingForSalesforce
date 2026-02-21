@@ -1,5 +1,5 @@
 {
-  "orgName": "QRCodeStylingForSalesforce - Beta Test Org",
+  "orgName": "QRCodeStylingForSalesforce - Build Org",
   "edition": "Developer",
   "settings": {
     "lightningExperienceSettings": {
@@ -16,6 +16,9 @@
       "sessionSettings": {
         "forceRelogin": false
       }
-    }  
+    },
+    "languageSettings": {
+      "enableTranslationWorkbench": true
+    }
   }
 }

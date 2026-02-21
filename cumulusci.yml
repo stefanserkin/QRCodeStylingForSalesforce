@@ -4,9 +4,11 @@ project:
     package:
         name: QRCodeStylingForSalesforce
         namespace: qrcs
-        api_version: '63.0'
+        api_version: '65.0'
     git:
         default_branch: 'main'
+    test:
+        name_match: '%_Test%'
     source_format: sfdx
 
 tasks:
@@ -21,7 +23,7 @@ tasks:
         class_path: cumulusci.tasks.sfdx.SFDXOrgTask
         options:
             command: "project retrieve start --ignore-conflicts"
-            
+
     robot:
         options:
             suites: robot/QRCodeStylingForSalesforce/tests
@@ -36,3 +38,8 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 85
+
+orgs:
+    scratch:
+        build:
+            config_file: orgs/build.json
