@@ -16,7 +16,7 @@
                 type="String"
                 datasource="apex://QrCodeFieldPicklist"
                 label="QR Code Value Field"
-                default="Name"
+                default="Id"
                 description="Field used as the value of the QR code"
             />
             <property
