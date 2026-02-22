@@ -1,14 +1,14 @@
 <testsuite tests="12">
-  <testcase classname="QrCodeFieldPicklist_Test" name="testDefaultValueWhenEntityInvalid" time="100" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testDefaultValueWhenEntityIsContact" time="45" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetDefaultValueInvalidObjectFallsBackToName" time="22" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetDefaultValueNullEntityFallsBackToName" time="4" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetDefaultValueUsesNameWhenPresent" time="36" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetDefaultValueUsesSubjectWhenNoName" time="27" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetEntityNameWithCtxNull" time="4" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetValuesExcludesReferenceTypes" time="116" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetValuesForInvalidObjectReturnsInvalidContextRow" time="29" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetValuesForNullEntityReturnsInvalidContextRow" time="4" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testGetValuesUseCanonicalCasing" time="32" />
-  <testcase classname="QrCodeFieldPicklist_Test" name="testIsValidAlwaysTrue" time="4" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testDefaultValueWhenEntityInvalid" time="125" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testDefaultValueWhenEntityIsContact" time="56" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetDefaultValueInvalidObjectFallsBackToName" time="23" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetDefaultValueNullEntityFallsBackToName" time="6" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetDefaultValueUsesNameWhenPresent" time="40" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetDefaultValueUsesSubjectWhenNoName" time="31" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetEntityNameWithCtxNull" time="7" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetValuesExcludesReferenceTypes" time="118" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetValuesForInvalidObjectReturnsInvalidContextRow" time="24" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetValuesForNullEntityReturnsInvalidContextRow" time="6" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testGetValuesUseCanonicalCasing" time="40" />
+  <testcase classname="QrCodeFieldPicklist_Test" name="testIsValidAlwaysTrue" time="6" />
 </testsuite>
