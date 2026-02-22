@@ -12,7 +12,7 @@
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
             <property
-                name="qrCodeValueApiName"
+                name="qrCodeValueFieldApiName"
                 type="String"
                 datasource="apex://QrCodeFieldPicklist"
                 label="QR Code Value Field"
@@ -89,23 +89,24 @@
                 description="URL of a public image to display as the logo. Leave blank to omit logo image."
             />
             <property
-                name="logoAltText"
-                type="String"
-                label="Logo Alt Text"
-                default="QR Code Logo"
-            />
-            <property
                 name="logoImageSize"
                 type="String"
                 datasource="0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1"
                 label="Logo Image Size"
-                default="0.5"
+                default="0.4"
+                description="Coefficient of the image size. Not recommended to use over 0.5. Lower is better."
             />
             <property
                 name="logoImageMargin"
                 type="Integer"
                 label="Logo Image Margin"
                 default="5"
+            />
+            <property
+                name="noQrValueMessage"
+                type="String"
+                label="No QR Value Message"
+                default="QR code is not available."
             />
             <supportedFormFactors>
                 <supportedFormFactor type="Large"></supportedFormFactor>
@@ -114,11 +115,23 @@
         </targetConfig>
         <targetConfig targets="lightningCommunity__Default">
             <property 
-                name="recordId" 
+                name="qrCodeStaticValue" 
                 type="String" 
-                label="Record ID" 
+                label="QR Code Value" 
                 default="{!recordId}"
-                description="For community record pages, set value to {!recordId}"
+                description="The value of the QR code"
+            />
+            <property
+                name="showTitle"
+                type="Boolean"
+                label="Show Title"
+            />
+            <property
+                name="titleStaticValue"
+                type="String"
+                label="Title"
+                default="QR Code"
+                description="A title to show above the QR code"
             />
             <property
                 name="qrCodeHeight"
@@ -177,23 +190,24 @@
                 description="URL of a public image to display as the logo. Leave blank to omit logo image."
             />
             <property
-                name="logoAltText"
-                type="String"
-                label="Logo Alt Text"
-                default="QR Code Logo"
-            />
-            <property
                 name="logoImageSize"
                 type="String"
                 datasource="0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1"
                 label="Logo Image Size"
-                default="0.5"
+                default="0.4"
+                description="Coefficient of the image size. Not recommended to use over 0.5. Lower is better."
             />
             <property
                 name="logoImageMargin"
                 type="Integer"
                 label="Logo Image Margin"
                 default="5"
+            />
+            <property
+                name="noQrValueMessage"
+                type="String"
+                label="No QR Value Message"
+                default="QR code is not available."
             />
         </targetConfig>
     </targetConfigs>
