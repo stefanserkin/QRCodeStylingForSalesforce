@@ -106,6 +106,13 @@ export default class QrCode extends LightningElement {
 
     @wire(CurrentPageReference)
     wiredPageRef(pageRef) {
+        if (this.usesRecordField) return;
+
+        if (this.valueSource !== 'URL Parameter') {
+            this.urlParamValue = null;
+            return;
+        }
+
         const key = this.effectiveUrlParamName;
         const raw = key ? pageRef?.state?.[key] : null;
         this.urlParamValue = raw || null;
