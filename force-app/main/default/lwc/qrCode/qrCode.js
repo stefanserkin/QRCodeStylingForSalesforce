@@ -7,16 +7,18 @@
  * @description
  * Generate a QR Code using the QR Code Styling JS library
  *
- * Supports two value modes:
- *  1) Record field mode (record pages): qrCodeValueFieldApiName is set
- *  2) Static mode (community/other pages): qrCodeValueFieldApiName is blank
- *     - renders using qrCodeStaticValue
+ * Value modes:
+ *  1) Record field mode (Lightning Record Pages): qrCodeValueFieldApiName is set
+ *  2) Experience Cloud mode:
+ *     - valueSource = "URL Parameter" -> reads from CurrentPageReference.state[urlParamName]
+ *     - valueSource = "Provided Value" -> uses providedValue
  *
  * @date 2026
  * @author SerkinSolutions
  ***********************************************************************/
 import { LightningElement, api, wire, track } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
+import { CurrentPageReference } from 'lightning/navigation';
 import { loadScript } from 'lightning/platformResourceLoader';
 import QrCodeStylingLib from '@salesforce/resourceUrl/qrCodeStyling';
 
@@ -24,9 +26,13 @@ export default class QrCode extends LightningElement {
     @api recordId;
     @api objectApiName;
 
-    // Value selection
+    // Record page mode
     @api qrCodeValueFieldApiName;
-    @api qrCodeStaticValue;
+
+    // Experience Cloud value mode
+    @api valueSource = 'Provided Value'; // "Provided Value" | "URL Parameter"
+    @api providedValue;
+    @api urlParamName = 'qrv';
 
     // Title
     @api showTitle;
@@ -52,15 +58,28 @@ export default class QrCode extends LightningElement {
     @track record;
     error;
 
-    qrCodeInstance;
+    urlParamValue;
 
+    qrCodeInstance;
     qrCodeLibLoaded = false;
     domReady = false;
     scriptLoadStarted = false;
 
+    /******************************
+     * Mode helpers
+     ******************************/
+
     get usesRecordField() {
         return !!(this.recordId && this.objectApiName && this.qrCodeValueFieldApiName);
     }
+
+    get effectiveUrlParamName() {
+        return (this.urlParamName || 'qrv').trim();
+    }
+
+    /******************************
+     * Data wiring
+     ******************************/
 
     get fields() {
         if (!this.usesRecordField) return [];
@@ -70,6 +89,32 @@ export default class QrCode extends LightningElement {
             this.getQualifiedFieldName(this.qrCodeValueFieldApiName)
         ].filter(Boolean);
     }
+
+    @wire(getRecord, { recordId: '$recordId', fields: '$fields' })
+    wiredRecord({ data, error }) {
+        if (data) {
+            this.record = data;
+            this.error = undefined;
+            this.tryRenderOrUpdateQr();
+        } else if (error) {
+            this.record = undefined;
+            this.error = error;
+            // eslint-disable-next-line no-console
+            console.error(error);
+        }
+    }
+
+    @wire(CurrentPageReference)
+    wiredPageRef(pageRef) {
+        const key = this.effectiveUrlParamName;
+        const raw = key ? pageRef?.state?.[key] : null;
+        this.urlParamValue = raw || null;
+        this.tryRenderOrUpdateQr();
+    }
+
+    /******************************
+     * Computed values
+     ******************************/
 
     get title() {
         if (!this.showTitle) return null;
@@ -85,26 +130,20 @@ export default class QrCode extends LightningElement {
     }
 
     get qrValueResolved() {
-        // Static mode
-        if (!this.usesRecordField) {
-            return this.qrCodeStaticValue || null;
+        // Record-field mode (Lightning Record Pages)
+        if (this.usesRecordField) {
+            if (!this.record) return null;
+            const qualified = this.getQualifiedFieldName(this.qrCodeValueFieldApiName);
+            return qualified ? getFieldValue(this.record, qualified) : null;
         }
 
-        // Record-field mode
-        if (!this.record) return null;
-
-        const qualified = this.getQualifiedFieldName(this.qrCodeValueFieldApiName);
-        return qualified ? getFieldValue(this.record, qualified) : null;
-    }
-
-    get isReadyToRender() {
-        if (!this.domReady || !this.qrCodeLibLoaded) return false;
-
-        if (!this.usesRecordField) {
-            return !!this.qrCodeStaticValue;
+        // Experience Cloud mode
+        if (this.valueSource === 'URL Parameter') {
+            return this.urlParamValue || null;
         }
 
-        return !!this.record;
+        // Default: Provided Value
+        return this.providedValue || null;
     }
 
     get hasQrValue() {
@@ -114,6 +153,16 @@ export default class QrCode extends LightningElement {
     get noValueMessage() {
         return this.noQrValueMessage || 'QR code is not available.';
     }
+
+    get isReadyToRender() {
+        if (!this.domReady || !this.qrCodeLibLoaded) return false;
+        if (this.usesRecordField) return !!this.record;
+        return true;
+    }
+
+    /******************************
+     * Lifecycle hooks
+     ******************************/
 
     connectedCallback() {
         if (this.scriptLoadStarted) return;
@@ -125,6 +174,7 @@ export default class QrCode extends LightningElement {
                 this.tryRenderOrUpdateQr();
             })
             .catch((error) => {
+                // eslint-disable-next-line no-console
                 console.error('Error loading qr-code-styling:', error);
             });
     }
@@ -136,27 +186,26 @@ export default class QrCode extends LightningElement {
         this.tryRenderOrUpdateQr();
     }
 
-    @wire(getRecord, { recordId: '$recordId', fields: '$fields' })
-    wiredRecord({ data, error }) {
-        if (data) {
-            this.record = data;
-            this.error = undefined;
-            this.tryRenderOrUpdateQr();
-        } else if (error) {
-            this.record = undefined;
-            this.error = error;
-            console.error(error);
-        }
-    }
+    /******************************
+     * Draw QR
+     ******************************/
 
     tryRenderOrUpdateQr() {
         if (!this.isReadyToRender) return;
 
-        const value = this.qrValueResolved;
-        if (!value) return;
-
         const qrDiv = this.template.querySelector('.qrcode');
         if (!qrDiv) return;
+
+        const value = this.qrValueResolved;
+
+        // If there's no value, clear any previously-rendered QR
+        if (!value) {
+            if (this.qrCodeInstance) {
+                qrDiv.innerHTML = '';
+                this.qrCodeInstance = null;
+            }
+            return;
+        }
 
         const options = this.buildOptions(value);
 
@@ -213,9 +262,9 @@ export default class QrCode extends LightningElement {
         return options;
     }
 
-    /**
+    /******************************
      * Utilities
-     */
+     ******************************/
 
     getQualifiedFieldName(fieldName) {
         const field = (fieldName || '').trim();

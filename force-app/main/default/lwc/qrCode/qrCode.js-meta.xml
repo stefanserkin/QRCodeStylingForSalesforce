@@ -115,11 +115,26 @@
         </targetConfig>
         <targetConfig targets="lightningCommunity__Default">
             <property 
-                name="qrCodeStaticValue" 
+                name="valueSource"
+                type="String"
+                datasource="Provided Value,URL Parameter"
+                label="QR Value Source"
+                default="Provided Value"
+                description="The source of the value for the QR code. If Provided Value, set Provided Value property. If URL Parameter, set URL Parameter Name."
+            />
+            <property 
+                name="providedValue" 
                 type="String" 
-                label="QR Code Value" 
+                label="Provided Value" 
                 default="{!recordId}"
-                description="The value of the QR code"
+                description="The value of the QR code. To use the ID from a record page, set to {!recordId}"
+            />
+            <property
+                name="urlParamName"
+                type="String"
+                label="URL Parameter Name"
+                default="qrv"
+                description="If QR Value Source is set to URL Parameter, enter the name of the parameter (example: qrv)."
             />
             <property
                 name="showTitle"
